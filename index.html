@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Plumbing Services | 24/7 Emergency Repairs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(30, 60, 114, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232a5298" width="1200" height="600"/><circle fill="%231e3c72" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%231e3c72" cx="900" cy="400" r="120" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .services {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .feature-icon {
+            color: #ffd700;
+            font-size: 2rem;
+            min-width: 40px;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            color: #ffd700;
+        }
+
+        footer {
+            background: #1a2332;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🔧 Premier Plumbing</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Professional Plumbing Services</h1>
+        <p>Available 24/7 for Emergency Repairs | Licensed & Insured</p>
+        <a href="#contact" class="cta-button">Get Free Quote</a>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 emergency plumbing services for burst pipes, leaks, and urgent issues. Fast response time guaranteed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3>Bathroom Plumbing</h3>
+                    <p>Complete bathroom installations, repairs, and renovations. Toilets, showers, sinks, and bathtubs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔥</div>
+                    <h3>Water Heaters</h3>
+                    <p>Installation, repair, and maintenance of traditional and tankless water heaters.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚽</div>
+                    <h3>Drain Cleaning</h3>
+                    <p>Professional drain cleaning and unclogging services using the latest equipment and techniques.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Leak Detection</h3>
+                    <p>Advanced leak detection technology to find and fix hidden leaks before they cause damage.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Pipe Repairs</h3>
+                    <p>Pipe repair, replacement, and re-piping services for residential and commercial properties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h3>Licensed & Insured</h3>
+                        <p>Fully licensed, bonded, and insured for your protection and peace of mind.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h3>Experienced Team</h3>
+                        <p>Over 20 years of experience in residential and commercial plumbing.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h3>Fair Pricing</h3>
+                        <p>Transparent, upfront pricing with no hidden fees or surprises.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div>
+                        <h3>Quality Guarantee</h3>
+                        <p>We stand behind our work with comprehensive warranties on all services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <strong>Phone:</strong><br>
+                        (555) 123-4567
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email:</strong><br>
+                        info@premierplumbing.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>Address:</strong><br>
+                        123 Main Street<br>
+                        Your City, ST 12345
+                    </div>
+                    <div class="contact-item">
+                        <strong>Hours:</strong><br>
+                        24/7 Emergency Service<br>
+                        Mon-Fri: 8AM - 6PM<br>
+                        Sat: 9AM - 4PM
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Request a Quote</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <textarea rows="5" placeholder="Describe your plumbing needs..." required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Premier Plumbing Services. All rights reserved.</p>
+        <p>Licensed, Bonded & Insured | License #123456</p>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            e.target.reset();
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
